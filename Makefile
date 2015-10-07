@@ -1,3 +1,5 @@
+SHELL=/usr/bin/bash
+
 install:
 	git submodule init
 	git submodule update
@@ -7,7 +9,7 @@ install:
 		mv ~/.tmux.conf ~/.tmux.conf.bak; \
 	fi;
 	cp `pwd`/.tmux.conf ~/.tmux.conf
-	sed -i '' 's|{{pwd}}|'`pwd`'|g' ~/.tmux.conf
+	sed -i 's|{{pwd}}|'`pwd`'|g' ~/.tmux.conf
 
 uninstall:
 	@if [ -f ~/.tmux.conf.bak ]; \
